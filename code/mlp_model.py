@@ -1,5 +1,4 @@
 import pandas as pd
-
 import matplotlib.pyplot as plt
 
 from sklearn.model_selection import train_test_split
@@ -29,10 +28,6 @@ bearing_data_f = pd.read_csv(file_faulty)
 bearing_data_f.dropna(inplace=True)
 bearing_data_f = bearing_data_f.drop(0)
 bearing_data_f.drop('BA_time', axis=1, inplace=True)
-
-# status column
-# bearing_data_h['Status'] = 0
-# bearing_data_f['Status'] = 1
 
 bearing_data = pd.concat([bearing_data_h, bearing_data_f])
 bearing_data.columns = bearing_data.columns.str.encode('ascii', 'ignore').str.decode('ascii')
