@@ -33,7 +33,7 @@ bearing_data = pd.concat([bearing_data_h, bearing_data_f])
 bearing_data.columns = bearing_data.columns.str.encode('ascii', 'ignore').str.decode('ascii')
 print(bearing_data.shape)
 
-# file = r"..\csv_data\combined_1797_12k.csv"
+# file = r"../big_data/combined_1797_12k.csv"
 # bearing_data = pd.read_csv(file)
 bearing_data_shuffled = bearing_data.sample(frac=1)
 print(bearing_data_shuffled.columns)
@@ -70,11 +70,13 @@ model.add(Flatten())
 model.add(Dense(128, input_dim=X_train.shape[1], activation='relu'))
 model.add(tensorflow.keras.layers.BatchNormalization())
 model.add(Dense(64, activation='relu'))
+# model.add(Dense(6, activation='sigmoid'))
 model.add(Dense(1, activation='sigmoid'))
 
 model.compile(
         optimizer=tensorflow.keras.optimizers.Adam(learning_rate=0.001),
         loss='binary_crossentropy',
+#        loss='sparse_categorical_crossentropy',
         metrics=['accuracy']
 )
 

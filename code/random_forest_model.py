@@ -32,7 +32,7 @@ params = ['DE_time', 'FE_time', 'DE_time (MA)',
           'FE_time (MA)', 'DE_time (SD)', 'FE_time (SD)']
 X = bearing_data_shuffled[params]
 
-# splitting the data into training & testing datas
+# splitting the data into training & testing data
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 
 print("\n----------TRAINING DATA----------")
@@ -42,7 +42,7 @@ print("\n----------TEST DATA----------")
 print(X_test.shape, y_test.shape)
 
 # model specification (random forest)
-bearing_model_rf = RandomForestRegressor(n_estimators=50, random_state=1, verbose=2)
+bearing_model_rf = RandomForestRegressor(n_estimators=50, random_state=1, verbose=0)
 
 # fitting model
 bearing_model_rf.fit(X_train, y_train)  # train_X->feature, train_y->target

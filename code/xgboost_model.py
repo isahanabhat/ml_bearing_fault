@@ -53,7 +53,7 @@ bearing_model_2 = XGBRegressor(n_estimators=500, learning_rate=0.05, early_stopp
 # fitting w/out early stopping
 bearing_model_1.fit(X_train, y_train)
 
-# fitting w/ ealy stopping
+# fitting w/ early stopping
 bearing_model_2.fit(X_train, y_train,
                     eval_set=[(X_val, y_val)],
                     verbose=False)
@@ -62,10 +62,10 @@ print("\n----------PREDICTIONS 1----------")
 pred_1 = bearing_model_1.predict(X_test)
 print(pred_1)
 print("MAE (bearing model 1) = ", mean_absolute_error(pred_1, y_test))
-print(bearing_model_1.score(X_test, y_test))
+print("Score = ", bearing_model_1.score(X_test, y_test))
 
 print("\n----------PREDICTIONS 2----------")
 pred_2 = bearing_model_2.predict(X_test)
 print(pred_2)
 print("MAE (bearing model 2) = ", mean_absolute_error(pred_2, y_test))
-print(bearing_model_2.score(X_test, y_test))
+print("Score = ", bearing_model_2.score(X_test, y_test))
