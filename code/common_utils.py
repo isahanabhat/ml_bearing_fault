@@ -68,7 +68,7 @@ def load_cwru_data(data_dir, segment_length=2048, test_size=0.2, random_state=42
         X, y, test_size=test_size, stratify=y, random_state=random_state
     )
 
-    print(f"✅ Loaded CWRU Dataset from {data_dir}")
+    print(f"Loaded CWRU Dataset from {data_dir}")
     print(f"   Total samples: {X.shape[0]} | Segment length: {segment_length}")
     print(f"   Train: {X_train.shape}, Test: {X_test.shape}")
 
